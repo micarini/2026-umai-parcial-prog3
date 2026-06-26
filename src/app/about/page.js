@@ -27,17 +27,17 @@ export default function AboutPage() {
 
   return (
     <main className='mx-auto px-6 py-16 bg-panel/50  text-[#fff8f6]'>
-      <section className='mx-auto flex min-h-[calc(100vh-144px)] max-w-[1100px] flex-col gap-10 px-6 p-10 md:flex-row md:gap-14 md:px-10 md:py-16'>
+      <section className='mx-auto flex max-w-[1100px] flex-col gap-10 px-6 p-10 md:flex-row md:gap-14 md:px-10 md:py-16'>
         <section className='flex flex-1 flex-col gap-5'>
-          <h1 className='text-4xl font-semibold md:text-lg'>Mia Carini Rojo</h1>
-          <p className='max-w-xl text-base leading-7 md:text-lg'>gender: "Female" <br></br>
-          location : 'Earth (Replacement Dimension)' <br></br>
-          origin : 'Anatomy Park' <br></br>
-          species : "Robot" <br></br>
-          status : "Unknown"</p>
-          <Link className='w-fit border-b border-[#7A2E2E] pb-1 text-sm font-medium text-[#7A2E2E}' href='https://www.linkedin.com/in/mia-carini-rojo' target='_blank' rel='noreferrer'>LinkedIn</Link>
+          <h1 className='text-4xl font-semibold md:text-4xl'>Mia Carini Rojo</h1>
+          <p className='max-w-xl text-base leading-7 md:text-lg'><b>gender: </b>"Female" <br></br>
+          <b>location:</b> 'Earth (Replacement Dimension)' <br></br>
+          <b>origin:</b> 'Anatomy Park' <br></br>
+          <b>species:</b> "Robot" <br></br>
+          <b>status:</b> "Unknown"</p>
+          <Link className='w-fit border-b border-[#44c960] pb-1 text-lg font-medium text-[#7A2E2E}' href='https://www.linkedin.com/in/mia-carini-rojo' target='_blank' rel='noreferrer'>LinkedIn</Link>
           <div className='pt-4'>
-            <h2 className='mb-3 text-xl font-semibold'>Personajes favoritos</h2>
+            <h2 className='mb-3 text-xl font-semibold text-[#44c960]'>Personajes favoritos</h2>
             <ul className='flex flex-col gap-2'>
               { personajes
                 .filter((personaje) => personaje.veces > 3)
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <button type='button' onClick={()=>setShowImage(true)} className='flex min-h-[280px] w-full items-center justify-center rounded-2xl bg-slate-500 px-6 py-12 text-lg font-semibold text-[#fff8f6] md:min-h-[315px] hover:bg-slate-700'>Ver imagen</button>
           ) : (
             <Image 
-            src='/mifoto.jpeg'
+            src='/mifoto.png'
             alt='Foto personal para about' 
             width={1200}
             height={900}

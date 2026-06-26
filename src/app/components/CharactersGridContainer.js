@@ -35,7 +35,6 @@ export default function CharactersGridContainer() {
       } catch (error) {
         console.error('Error al obtener los personajes:', error);
         setError(true);
-        setCharacters([]);
       } finally {
         setLoading(false);
       }
