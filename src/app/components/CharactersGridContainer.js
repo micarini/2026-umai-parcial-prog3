@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CharactersGrid from '@/app/components/CharactersGrid';
 
-const API_URL = ``;
+const API_URL = `https://rickandmortyapi.com/api/character`;
 
 function PortalLoader() {
   return (
@@ -16,7 +16,7 @@ function PortalLoader() {
     </div>
   );
 }
-
+   
 export default function CharactersGridContainer() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,12 +27,18 @@ export default function CharactersGridContainer() {
   // la información necesaria para mostrarla en la grilla.
   useEffect(() => {
     const fetchCharacters = async () => {
+      setLoading(true);
       try {
+        const response = await axios.get(API_URL);
+        console.log(response.data.results);
+        setCharacters(response.data.results);
       } catch (error) {
         console.error('Error al obtener los personajes:', error);
         setError(true);
+        setCharacters([]);
+      } finally {
+        setLoading(false);
       }
-
       
     };
 
@@ -48,6 +54,7 @@ export default function CharactersGridContainer() {
         </p>
       )}
       {/* Mostrar grilla CharactersGrid si no hay error y no está en loading, pasando las props: characters y loading (importante!) */}
+      {loading ? <p>Loading...</p> : <CharactersGrid characters={characters} loading={loading}/>}
     </div>
   );
 }
